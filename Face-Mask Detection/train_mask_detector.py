@@ -22,7 +22,7 @@ INIT_LR = 1e-4
 EPOCHS = 20
 BS = 32
 
-DIRECTORY = r"E:\Face-Mask-Detection\dataset"
+DIRECTORY = r"D:\FYP\face-mask-detector\execution\Face-Mask Detection\dataset"
 CATEGORIES = ["with_mask", "without_mask"]
 data = []
 labels = []
