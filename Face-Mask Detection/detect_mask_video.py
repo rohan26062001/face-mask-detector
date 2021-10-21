@@ -6,6 +6,20 @@ import numpy as np
 import imutils
 import cv2
 
+# For Testing with Youtube Video
+
+import pafy
+
+# url = "https://www.youtube.com/watch?v=v8gc4qhm9OY"
+# video = pafy.new(url)
+# best = video.getbest(preftype="mp4")
+
+# For Testing with IP Camera
+
+# IP_came_url = "rtsp://USER_NAME:PASSWORD@IP_ADDR:554/Streaming/Channels/401"
+# IPcam_video = pafy.new(IPcam_url)
+# IP_best = IPcam_video.getbest(preftype="mp4")
+
 def detect_and_predict_mask(frame, faceNet, maskNet):
 	(h, w) = frame.shape[:2]
 	blob = cv2.dnn.blobFromImage(frame, 1.0, (224, 224),(104.0, 177.0, 123.0))
@@ -41,7 +55,7 @@ print("starting video stream...")
 vs = VideoStream(src=0).start()
 while True:
 	frame = vs.read()
-	frame = imutils.resize(frame, width=400)
+	frame = imutils.resize(frame, height=1280, width=720)
 	(locs, preds) = detect_and_predict_mask(frame, faceNet, maskNet)
 
 	for (box, pred) in zip(locs, preds):
@@ -57,5 +71,5 @@ while True:
 	key = cv2.waitKey(1) & 0xFF
 	if key == ord("q"):
 		break
-cv2.destroyAllWindows()
 vs.stop()
+cv2.destroyAllWindows()
