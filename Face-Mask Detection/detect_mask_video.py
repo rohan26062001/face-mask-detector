@@ -8,7 +8,7 @@ import cv2
 
 # For Testing with Youtube Video
 
-import pafy
+# import pafy
 
 # url = "https://www.youtube.com/watch?v=v8gc4qhm9OY"
 # video = pafy.new(url)
@@ -52,7 +52,7 @@ weightsPath = r"face_detector\300x300_ssd.caffemodel"
 faceNet = cv2.dnn.readNet(prototxtPath, weightsPath)
 maskNet = load_model("mask_detector.model")
 print("starting video stream...")
-vs = VideoStream(src=0).start()
+vs = VideoStream(src=1).start()
 while True:
 	frame = vs.read()
 	frame = imutils.resize(frame, height=1280, width=720)
