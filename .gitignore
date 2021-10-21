@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Adding Dataset Folder to gitignore file
+Face-Mask Detection/dataset/
